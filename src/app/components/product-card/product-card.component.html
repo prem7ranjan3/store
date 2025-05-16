@@ -1,0 +1,14 @@
+<div class="product-card">
+  <div class="product-image">
+    <img [src]="product.image" [alt]="product.name">
+    <div class="hover-overlay">
+      <button class="btn btn-light">Quick View</button>
+    </div>
+  </div>
+  <div class="product-info">
+    <h3>{{ product.name }}</h3>
+    <p class="description">{{ product.description }}</p>
+    <p class="price">${{ product.price.toFixed(2) }}</p>
+    <button class="btn btn-primary">Add to Cart</button>
+  </div>
+</div>

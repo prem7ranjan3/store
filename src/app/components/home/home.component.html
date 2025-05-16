@@ -1,0 +1,143 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="video-background">
+      <video #backgroundVideo autoplay muted loop playsinline>
+        <source src="assets/images/backvideo.mp4" type="video/mp4">
+      </video>
+      <div class="overlay"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Collections -->
+  <section id="collections" class="collections section-padding">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Collections</h2>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="collection-card">
+            <div class="collection-image">
+              <img 
+                src="../../assets/images/necklaces.jpg" 
+                alt="Necklaces Collection"
+                loading="lazy"
+              >
+              <div class="overlay">
+                <button class="btn">View Collection</button>
+              </div>
+            </div>
+            <h3>Necklaces</h3>
+            <p>Elegant pieces for every occasion</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="collection-card">
+            <div class="collection-image">
+              <img 
+                src="../../assets/images/rings.jpg" 
+                alt="Rings Collection"
+                loading="lazy"
+              >
+              <div class="overlay">
+                <button class="btn">View Collection</button>
+              </div>
+            </div>
+            <h3>Rings</h3>
+            <p>Symbols of eternal beauty</p>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="collection-card">
+            <div class="collection-image">
+              <img 
+                src="../../assets/images/earrings.jpg" 
+                alt="Earrings Collection"
+                loading="lazy"
+              >
+              <div class="overlay">
+                <button class="btn">View Collection</button>
+              </div>
+            </div>
+            <h3>Earrings</h3>
+            <p>The perfect finishing touch</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Featured Products</h2>
+      <div class="row g-4">
+        @for (product of products$ | async; track product.id) {
+          <div class="col-md-4 col-lg-3" data-aos="fade-up" [attr.data-aos-delay]="100 * $index">
+            <app-product-card [product]="product"></app-product-card>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- New Arrivals -->
+  <section id="new-arrivals" class="new-arrivals section-padding">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">New Arrivals</h2>
+      <div class="row g-4">
+        <div class="col-md-3" *ngFor="let product of products$ | async; let i = index" [attr.data-aos-delay]="i * 100" data-aos="fade-up">
+          <app-product-card [product]="product"></app-product-card>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section-padding">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+      <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-right">
+          <form class="contact-form">
+            <div class="mb-4">
+              <input type="text" class="form-control form-control-lg" placeholder="Your Name">
+            </div>
+            <div class="mb-4">
+              <input type="email" class="form-control form-control-lg" placeholder="Your Email">
+            </div>
+            <div class="mb-4">
+              <textarea class="form-control form-control-lg" rows="5" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+          </form>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+          <div class="contact-info">
+            <h3 class="mb-4">Visit Our Store</h3>
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>123 Jewelry Street<br>New York, NY 10001</p>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <p>(123) 456-7890</p>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <p>info&#64;mystore.com</p>
+            </div>
+            <div class="social-links mt-4">
+              <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
